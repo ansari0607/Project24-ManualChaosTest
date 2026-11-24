@@ -1,0 +1,34 @@
+Project 24 - Manual Chaos Test
+
+Objective:
+Validate application recovery from a simulated service failure.
+
+Environment:
+Linux VM running Apache Web Server.
+
+Incident:
+Apache service was intentionally stopped using systemctl to simulate an outage.
+
+Impact:
+Web application became unavailable and HTTP requests failed.
+
+Detection:
+Service status showed inactive (dead).
+curl http://localhost failed or visiting site http://localhost on browser failed.
+
+Recovery Actions:
+1. Restarted Apache service.
+2. Verified service status.
+3. Tested application availability using curl.
+
+Commands Used:
+sudo systemctl stop apache2
+sudo systemctl status apache2
+sudo systemctl start apache2
+curl http://localhost
+
+Result:
+The Apache service recovered successfully and application access was restored.
+
+Conclusion:
+Recovery procedure was validated successfully.
